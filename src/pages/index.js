@@ -4,6 +4,8 @@ import EditCodePage from "./EditCodePage";
 import NewCodePage from "./NewCodePage";
 import NewCodesPage from "./NewCodesPage";
 import Categories from "./Categories";
+import Authorization from "./Authorization";
+
 
 export {
   MainPage,
@@ -12,4 +14,5 @@ export {
   NewCodePage,
   NewCodesPage,
   Categories,
+  Authorization
 };

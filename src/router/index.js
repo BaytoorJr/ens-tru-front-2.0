@@ -7,6 +7,7 @@ import {
   NewCodePage,
   NewCodesPage,
   Categories,
+  Authorization
 } from "../pages";
 
 const MainRouter = () => {
@@ -15,6 +16,7 @@ const MainRouter = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/authorization" element={<Authorization />} />
           <Route path="/code/:code" element={<SingleCodePage />} />
           <Route path="/edit/:code" element={<EditCodePage />} />
           <Route path="/viewNewCode/:code" element={<NewCodePage />} />
