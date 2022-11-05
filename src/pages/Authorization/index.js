@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Authorization = () => {
-    // axios.post(url, {
-    //     //...data
-    //   }, {
-    //     headers: {
-    //       ...
-    //     }
-    //   })
+    const url = "http://10.224.49.81:30100/api-token-auth/"
+    axios.post(url, {
+        "username": "admin",
+        "password": "admin"
+      }).then(response => {
+        console.log(response.data['token'])
+      })
 
     // axios.get('http://10.224.49.81:30100/code', {
     // headers: {
