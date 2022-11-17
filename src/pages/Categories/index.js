@@ -45,8 +45,6 @@ const Categories = () => {
 
   if (error || !data.results) return "An error has occurred: " + error?.message;
 
-  const item = data.results;
-
   const handleAddCategory = () => {
 
     mutate({

@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const MainPage = () => {
   const { isLoading, error, data } = useQuery(["repoData"], () =>
