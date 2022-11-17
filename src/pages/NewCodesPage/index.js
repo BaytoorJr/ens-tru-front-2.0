@@ -7,7 +7,11 @@ const NewCodesPage = () => {
     const [title, setTitle] = useState("");
     const [result, setResult] = useState("");
   const { isLoading, error, data } = useQuery(["repoData"], () =>
-    fetch("http://10.224.49.81:30100/code").then((res) =>
+    fetch("http://10.224.49.81:30100/code", {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+    }).then((res) =>
       res.json()
     )
   );
@@ -17,7 +21,11 @@ const NewCodesPage = () => {
   };
 
   const getCode = async () => {
-    axios.get(`http://10.224.49.81:30100/search/code/${title}`)
+    axios.get(`http://10.224.49.81:30100/search/code/${title}`, {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+    })
       .then(res => {
         setResult(res)
       })

@@ -1,9 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const MainPage = () => {
   const { isLoading, error, data } = useQuery(["repoData"], () =>
-    fetch("http://10.224.49.81:30100/old_code").then((res) =>
+    fetch("http://10.224.49.81:30100/old_code", {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+    }).then((res) =>
       res.json()
     )
   );

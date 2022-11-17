@@ -6,7 +6,11 @@ import axios from "axios";
 const createNewCategory = async (data) => {
   const { data: response } = await axios.post(
     "http://10.224.49.81:30100/category/",
-    data
+    data, {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+    }
   );
   return response.data;
 };
@@ -17,7 +21,11 @@ const Categories = () => {
   const [parentCategory, setParentCategory] = useState(0);
 
   const { isLoading, error, data } = useQuery(["repoData"], () =>
-    fetch(`http://10.224.49.81:30100/category/`).then((res) => res.json())
+    fetch(`http://10.224.49.81:30100/category/`, {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+    }).then((res) => res.json())
   );
 
   const { mutate } = useMutation(createNewCategory, {

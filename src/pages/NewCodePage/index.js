@@ -5,7 +5,11 @@ const NewCodePage = () => {
   let params = useParams();
 
   const { isLoading, error, data } = useQuery(["repoData"], () =>
-    fetch(`http://10.224.49.81:30100/code/${params.code}`).then((res) =>
+    fetch(`http://10.224.49.81:30100/code/${params.code}`, {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+    }).then((res) =>
       res.json()
     )
   );
