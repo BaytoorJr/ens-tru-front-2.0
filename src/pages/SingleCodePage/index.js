@@ -7,7 +7,11 @@ const SingleCodePage = () => {
 
   const fetchPosts = async (code) => {
     const { data } = await axios.get(
-      `http://10.224.49.81:30100/old_code/${code}`
+      `http://10.224.49.81:30100/old_code/${code}`, {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+      }
     );
     return data;
   };

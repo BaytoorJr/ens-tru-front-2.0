@@ -8,7 +8,11 @@ import axios from "axios";
 const createNewCode = async (data) => {
   const { data: response } = await axios.post(
     "http://10.224.49.81:30100/code/",
-    data
+    data, {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+    }
   );
   return response;
 };
@@ -16,7 +20,11 @@ const createNewCode = async (data) => {
 const createNewCharacteristic = async (data) => {
   const { data: response } = await axios.post(
     "http://10.224.49.81:30100/characteristics/",
-    data
+    data, {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+    }
   );
   return response;
 };
@@ -72,7 +80,11 @@ const EditCodePage = () => {
     error: errorCode,
     data: dataCode,
   } = useQuery(["repoData"], () =>
-    fetch(`http://10.224.49.81:30100/old_code/${params.code}`).then((res) =>
+    fetch(`http://10.224.49.81:30100/old_code/${params.code}`, {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+    }).then((res) =>
       res.json()
     )
   );
@@ -82,7 +94,11 @@ const EditCodePage = () => {
     error: errorCategory,
     data: dataCategory,
   } = useQuery(["repoMyData"], () =>
-    fetch(`http://10.224.49.81:30100/category/`).then((res) => res.json())
+    fetch(`http://10.224.49.81:30100/category/`, {
+        headers: {
+            'Authorization': `token ${document.cookie}`
+        }
+    }).then((res) => res.json())
   );
 
   if (isLoadingCode || isLoadingCategory) return "Loading...";
