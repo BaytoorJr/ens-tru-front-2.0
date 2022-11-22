@@ -76,7 +76,7 @@ const Categories = () => {
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Название</th>
-            <th scope="col">Actions</th>
+            {/* <th scope="col">Actions</th> */}
           </tr>
         </thead>
         <tbody>
@@ -88,11 +88,11 @@ const Categories = () => {
                 <br />
                 {item.name_kz}
               </td>
-              <td>
+              {/* <td>
                 <Link to={`/edit/${item?.id}`} className="btn btn-secondary">
                   Изменить
                 </Link>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>
